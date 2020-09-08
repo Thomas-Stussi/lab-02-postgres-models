@@ -12,31 +12,29 @@ CREATE TABLE characters (
   race TEXT NOT NULL
 );
 
-CREATE TABLE spells (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT NOT NULL,
-  school TEXT NOT NULL,
-  level INT CHECK (level > 0, level < 10)
-);
+-- CREATE TABLE spells (
+--   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--   name TEXT NOT NULL,
+--   school TEXT NOT NULL,
+--   level INT CHECK (level > 0, level < 10)
+-- );
 
-CREATE TABLE skills (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT NOT NULL,
-  ability TEXT CHECK (ability = ANY('{strength,dexterity,constitution,intelligence,wisdom,charisma}')),
-);
+-- CREATE TABLE skills (
+--   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--   name TEXT NOT NULL,
+--   ability TEXT CHECK (ability = ANY('{strength,dexterity,constitution,intelligence,wisdom,charisma}'))
+-- );
 
-CREATE TABLE items (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT NOT NULL,
-  type TEXT CHECK (type = ANY('{weapon,armor,wondrous}')),
-  rarity TEXT CHECK (rarity = ANY('{common,uncommon,rare,legendary}'))
-);
+-- CREATE TABLE items (
+--   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--   name TEXT NOT NULL,
+--   type TEXT CHECK (type = ANY('{weapon,armor,wondrous}')),
+--   rarity TEXT CHECK (rarity = ANY('{common,uncommon,rare,legendary}'))
+-- );
 
-CREATE TABLE monsters (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name TEXT NOT NULL,
-  type TEXT CHECK (type = ANY('{aberration,humanoid,beast,fiend}')),
-  challenge INT CHECK (challenge > 0)
-);
-
-© 2020 GitHub, Inc.
+-- CREATE TABLE monsters (
+--   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+--   name TEXT NOT NULL,
+--   type TEXT CHECK (type = ANY('{aberration,humanoid,beast,fiend}')),
+--   challenge INT CHECK (challenge > 0)
+-- );
