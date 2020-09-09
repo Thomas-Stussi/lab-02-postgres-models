@@ -39,4 +39,41 @@ describe('Spell routes', () => {
       level: 1
     });
   });
+
+  it('fetches a spell by id with GET', async() => {
+    const createdSpell = await Spell.insert({
+      name: 'magic missile', 
+      school: 'evocation', 
+      level: 1
+    });
+
+    const response = await request(app)
+      .get(`/api/v1/spells/${createdSpell.id}`);
+
+    expect(response.body).toEqual({
+      id: createdSpell.id,
+      name: 'magic missile', 
+      school: 'evocation', 
+      level: 1
+    });
+  });
+
+  it('updates a spell by id with PUT', async() => {
+    const createdSpell = await Spell.insert({
+      name: 'magic missile', 
+      school: 'evocation', 
+      level: 1
+    });
+
+    const response = await request(app)
+      .put(`/api/v1/spells/${createdSpell.id}`)
+      .send({ name: 'wish', school: 'conjuration', level: 9 });
+
+    expect(response.body).toEqual({
+      id: expect.any(String),
+      name: 'wish',
+      school: 'conjuration',
+      level: 9
+    });
+  });
 });
